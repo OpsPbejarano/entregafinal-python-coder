@@ -6,6 +6,7 @@ from django.db import models
 class BlogModel(models.Model):
     titulo = models.CharField(max_length=100) 
     subtitulo= models.CharField(max_length=100)
+    descripcion= models.CharField(max_length=100)
     cuerpo = models.TextField()
     autor = models.CharField(max_length=100)
     fecha = models.DateField(auto_now_add=True)

@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.urls import reverse_lazy
 from bloggeneral.models import *
 # Create your views here.
@@ -23,6 +23,8 @@ def CrearBlog(request):
 def ModificarBlog(request):
     return HttpResponse("Modificar")
 
-def EliminarBlog(request):
-    return HttpResponse("Eliminar")
+class EliminarBlog(DeleteView):
+    model = BlogModel
+    template_name = "bloggeneral/confirm_delete.html"
+    success_url = reverse_lazy("home")
 
